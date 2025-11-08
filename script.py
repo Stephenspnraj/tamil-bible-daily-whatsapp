@@ -32,7 +32,7 @@ def send_whatsapp_message(message):
     headers = {"Authorization": f"Bearer {ACCESS_TOKEN}"}
     payload = {
         "messaging_product": "whatsapp",
-        "to": YOUR_WHATSAPP_NUMBER,
+        "to": 919597471137,
         "type": "text",
         "text": {"body": message}
     }
