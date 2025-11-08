@@ -1,9 +1,8 @@
 import requests
 import pandas as pd
 from datetime import date
-
-# Environment variables from GitHub Actions secrets
 import os
+
 ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
 PHONE_NUMBER_ID = os.getenv("PHONE_NUMBER_ID")
 YOUR_WHATSAPP_NUMBER = os.getenv("YOUR_WHATSAPP_NUMBER")
@@ -32,7 +31,7 @@ def send_whatsapp_message(message):
     headers = {"Authorization": f"Bearer {ACCESS_TOKEN}"}
     payload = {
         "messaging_product": "whatsapp",
-        "to": 919597471137,
+        "to": YOUR_WHATSAPP_NUMBER,
         "type": "text",
         "text": {"body": message}
     }
