@@ -1,0 +1,23 @@
+name: Daily WhatsApp Bible Message
+
+on:
+  schedule:
+    - cron: '30 0 * * *'   # Runs daily at 6:00 AM IST (00:30 UTC)
+  workflow_dispatch:       # Manual trigger button
+jobs:
+  send-message:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: pip install requests pandas
+      - name: Run Script
+        run: python script.py
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          PHONE_NUMBER_ID: ${{ secrets.PHONE_NUMBER_ID }}
+          YOUR_WHATSAPP_NUMBER: ${{ secrets.YOUR_WHATSAPP_NUMBER }}
