@@ -65,8 +65,8 @@ def main():
     send_whatsapp_message(YOUR_WHATSAPP_NUMBER, msg1)
 
     # ---- Wait 10 minutes ----
-    print("⏳ Waiting 6 seconds before sending answers...")
-    time.sleep(6)
+    print("⏳ Waiting 5 seconds before sending answers...")
+    time.sleep(5)
 
     # ---- Send message 2 ----
     send_whatsapp_message(YOUR_WHATSAPP_NUMBER, msg2)
