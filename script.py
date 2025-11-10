@@ -3,10 +3,11 @@ import requests
 from datetime import datetime
 import time
 import pytz
+import os
 
 # ==== CONFIG ====
-ACCESS_TOKEN = "YOUR_ACCESS_TOKEN"
-PHONE_NUMBER_ID = "YOUR_PHONE_NUMBER_ID"  # From WhatsApp Cloud API
+ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
+PHONE_NUMBER_ID = os.getenv("PHONE_NUMBER_ID")
 YOUR_WHATSAPP_NUMBER = os.getenv("YOUR_WHATSAPP_NUMBER")
 CSV_FILE = "bible_reading_plan.csv"
 
@@ -64,8 +65,8 @@ def main():
     send_whatsapp_message(YOUR_WHATSAPP_NUMBER, msg1)
 
     # ---- Wait 10 minutes ----
-    print("⏳ Waiting 10 minutes before sending answers...")
-    time.sleep(600)
+    print("⏳ Waiting 6 seconds before sending answers...")
+    time.sleep(6)
 
     # ---- Send message 2 ----
     send_whatsapp_message(YOUR_WHATSAPP_NUMBER, msg2)
