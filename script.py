@@ -52,14 +52,15 @@ def main():
     date_str = datetime.now(pytz.timezone("Asia/Kolkata")).strftime("%-d %B %Y")
 
     msg1 = (
-        f"📅 Daily message:\n"
+        f"📖 ஒரு வருட  வேதாகம வாசிப்பு   திட்டம்:\n"
         f"📖 இன்றைய வேதாகம வாசிப்பு ({date_str})\n\n"
         f"📜 பழைய ஏற்பாடு: {data['OT_Chapter']}\n"
         f"📜 புதிய ஏற்பாடு: {data['NT_Chapter']}\n\n"
-        f"💭 கேள்விகள்:\n{data['Questions']}"
     )
 
-    msg2 = f"📜 இன்றைய பதில்கள்:\n{data['Answers']}"
+    msg2 = f"💭 கேள்விகள்:\n{data['Questions']}"
+
+    msg3 = f"📜 இன்றைய பதில்கள்:\n{data['Answers']}"
 
     # ---- Send message 1 ----
     send_whatsapp_message(YOUR_WHATSAPP_NUMBER, msg1)
@@ -70,6 +71,7 @@ def main():
 
     # ---- Send message 2 ----
     send_whatsapp_message(YOUR_WHATSAPP_NUMBER, msg2)
+    send_whatsapp_message(YOUR_WHATSAPP_NUMBER, msg3)
 
 if __name__ == "__main__":
     main()
