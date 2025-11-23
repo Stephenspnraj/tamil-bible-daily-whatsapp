@@ -106,6 +106,21 @@ if wedding_list:
 
 message += "\nForward this message to the group. 🚀"
 
+def send_whatsapp(to, text):
+    headers = {
+        "Authorization": f"Bearer {WHATSAPP_TOKEN}",
+        "Content-Type": "application/json"
+    }
+    body = {
+        "messaging_product": "whatsapp",
+        "to": to,
+        "type": "text",
+        "text": {"body": text}
+    }
+    response = requests.post(API_URL, json=body, headers=headers)
+    print("WhatsApp API response:", response.status_code, response.text)
+
+
 
 # -------------------------------
 # Send to YOUR WhatsApp
