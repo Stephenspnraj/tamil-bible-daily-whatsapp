@@ -61,8 +61,8 @@ wedding_list = []
 for row in birthday_rows:
     name = row["Name"]
     date = row["Date"]
-    if date and datetime.strptime(date, "%Y-%m-%d").strftime("%m-%d") == today:
-        birthday_list.append(name)
+    if date and datetime.strptime(date, "%d/%m/%Y").strftime("%m-%d") == today:
+    birthday_list.append(name)
 
 # Check weddings
 for row in wedding_rows:
