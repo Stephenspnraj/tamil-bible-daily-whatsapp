@@ -68,7 +68,7 @@ for row in birthday_rows:
 for row in wedding_rows:
     name = row["Name"]
     date = row["Date"]
-    if date and datetime.strptime(date, "%Y-%m-%d").strftime("%m-%d") == today:
+    if date and datetime.datetime.strptime(date, "%d/%m/%Y").strftime("%m-%d") == today:
         wedding_list.append(name)
 
 # If nothing today → exit silently
