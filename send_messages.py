@@ -53,23 +53,35 @@ def send_whatsapp(to, text):
 
 # -------------------------------
 # Build message content
-# -------------------------------
+# ------------------------------
+
+def parse_date(date):
+    for fmt in ("%Y-%m-%d", "%d/%m/%Y"):
+        try:
+            return datetime.strptime(date, fmt)
+        except:
+            continue
+    return None
+
 birthday_list = []
 wedding_list = []
 
-# Check birthdays
+# Birthdays
 for row in birthday_rows:
     name = row["Name"]
-    date = row["Date"]
-    if date and datetime.strptime(date, "%d/%m/%Y").strftime("%m-%d") == today:
-    birthday_list.append(name)
+    date = str(row["Date"])
+    dt = parse_date(date)
+    if dt and dt.strftime("%m-%d") == today:
+        birthday_list.append(name)  # ✅ properly indented
 
-# Check weddings
+# Weddings
 for row in wedding_rows:
     name = row["Name"]
-    date = row["Date"]
-    if date and datetime.datetime.strptime(date, "%d/%m/%Y").strftime("%m-%d") == today:
-        wedding_list.append(name)
+    date = str(row["Date"])
+    dt = parse_date(date)
+    if dt and dt.strftime("%m-%d") == today:
+        wedding_list.append(name)  # ✅ properly indented
+
 
 # If nothing today → exit silently
 if not birthday_list and not wedding_list:
