@@ -17,7 +17,7 @@ client = gspread.authorize(creds)
 
 sheet = client.open_by_key("12ak_BlCZpTOZWWGX0wy_rbCcMLaJaLc9JdDkBo9nzQw")
 
-birthday_sheet = sheet.worksheet("Birthday")
+birthday_sheet = sheet.worksheet("Birthdays")
 wedding_sheet = sheet.worksheet("Weddings")
 
 birthday_rows = birthday_sheet.get_all_records()
