@@ -120,6 +120,11 @@ def send_whatsapp(to, text):
     response = requests.post(API_URL, json=body, headers=headers)
     print("WhatsApp API response:", response.status_code, response.text)
 
+print("Today:", today)
+print("Birthday rows:", birthday_rows)
+print("Wedding rows:", wedding_rows)
+
+
 
 
 # -------------------------------
